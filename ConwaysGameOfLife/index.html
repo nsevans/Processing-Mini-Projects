@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
+		<script language="javascript" type="text/javascript" src="GameOfLife.js"></script>
+		<script language="javascript" type="text/javascript" src="Cells.js"></script>
+		<script language="javascript" type="text/javascript" src="Cell.js"></script>
+
+		<title>Conway's Game of Life</title>
+	</head>
+	<body>
+		<main>
+			<p><a href="../index.html">Back</a></p>
+			<p>Conway's Game of Life is a famous cellular automaton created by John Horton Conway. It's a game where the evolution of 
+			each pixel is determined by its surrounding neighbours.</p>
+			<p>The rules of the Game of Life are as follows:
+			<ol>
+				<li>Any living cell with 2 or 3 living neighbours lives.</li>
+				<li>Any dead cell with 3 living neighbours becomes a living cell.</li>
+				<li>All other living cells that doesn't meet the first rule dies, and any dead cell that doesn't meet the second rule stays dead.</li>
+			</ol>
+			</p>
+			<p>Most simulations allow the user to select which cells are dead or alive before starting the simulation (which may be implemented at 
+			a future time), however this simulation selects the dead or alive cells at random and can be reset with the 'Restart Simulation' button below.</p>
+			<p>More information about Conway's Game of Life can be found <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">here</a>.</p>
+
+			<div id="canvasDiv"></div>
+			<button type="button" onclick="restartSimulation()">Restart Simulation</button>
+		</main>
+	</body>
+</html>

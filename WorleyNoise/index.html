@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head >
+		<link rel="stylesheet" href="style.css">
+		<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
+		<script language="javascript" type="text/javascript" src="WorleyNoise.js"></script>
+
+		<title>Worley Noise</title>
+	</head>
+	<body>
+		<main>
+			<p><a href="../index.html">Back</a></p>
+			<p>Worley noise is a noise algorithm initialy introduced by Steven Worley. It is used to create procedural textures and it 
+			comes close to simulating textures like water, stone and biological cells. The algorithm chooses random points on the canvas, 
+			and then it colors each pixel on the screen depending on how close it is to one of the randomly placed points</p>
+			<p>There are different options to play with at the bottom of the screen that will result in different patterns. 
+			Whenever the options change, press the 'Restart Simulation' button to see what effects it will have.</p>
+			<p>The idea for this project can be found <a href="https://www.youtube.com/watch?v=4066MndcyCk" target="_blank">here</a> 
+			and more information about Worley Noise can be found <a href="https://en.wikipedia.org/wiki/Worley_noise" target="_blank">here</a>.</p>
+			<div id="canvasDiv"></div>
+
+			<div class="controls">
+				<div class="col">
+					<button type="button" onclick="generate()">Restart Simulation</button>
+				</div>
+				<div class="col">
+					<label class="randomPoints">
+						<input type="range" min="1" max="100" value="15" step="1" id="randomPointCount" oninput="this.nextElementSibling.value = this.value">
+						<output>15</output>
+						Number of Random Points
+					</label>
+					<div class="colorPicker">
+						<label class="colorLabel">
+							<input type="color" id="closeColor" value="#00ff00">
+							Color of pixels closest to a point
+						</label>
+					</div>
+
+					<div class="colorPicker">
+						<label class="colorLabel">
+							<input type="color" id="farColor" value="#0000ff">
+							Color pixels furthest from a point
+						</label>
+					</div>
+				</div>
+
+				<div class="col">
+					<!--<div class="checkbox">
+						<label>
+							<input type="checkbox" id="doGradient" name="doGradient">
+							Gradient
+						</label>
+					</div>-->
+					<div class="slider">
+						<label class="strength">
+							<input type="range" min="0" max="1" value="0.5" step="0.01" id="strength">
+							Color strength of pixels
+						</label>
+					</div>
+					<div class="slider">
+						<label class="cruve">
+							<input type="range" min="0" max="1" value="0.5" step="0.01" id="curve">
+							Color fall off curve
+						</label>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>

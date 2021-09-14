@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
+		<script language="javascript" type="text/javascript" src="SierpinskiTriangle.js"></script>
+		
+		<title>Chaos Game - Sierpinski Triangle</title>
+	</head>
+	<body>
+		<main>
+			<p><a href="../index.html">Back</a></p>
+			<p>This is a simulation of a chaos game. A chaos game is a method of creating a fractal, in this simulation a Sierpinski Triangle, using the 
+			three points of the triangle and a starting point randomly selected within the bounds of the triangle. The fractal is created by continusouly
+			drawing points, starting at the initial random point and selecting one of the three points of the triangle at random. A new point is then
+			drawn halfway between the two points, and the process repeats as the Sierpinski Triangle will begin to be revealed.</p>
+			<p>More information on chaos games can be found <a href="https://en.wikipedia.org/wiki/Chaos_game" target="_blank">here</a> and more information about 
+			Sierpinski Triangles can be found <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle" target="_blank">here</a>.</p>
+			<p id="iterations">Iterations</p>
+			<div id="canvasDiv"></div>
+		</main>
+	</body>
+</html>

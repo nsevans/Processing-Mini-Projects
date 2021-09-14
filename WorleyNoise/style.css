@@ -1,0 +1,13 @@
+.controls {
+    height: 50px;
+}
+
+.col {
+    height: 50px;
+    float: left;
+    padding-right: 50px;
+}
+
+p {
+    width: 800px;
+}
