@@ -9,7 +9,7 @@ let backgroundColorBottom, backgroundColorTop;
 let rate;
 
 function setup() {
-    var canvas = createCanvas(900,700);
+    var canvas = createCanvas(innerWidth-10,800);
     canvas.parent("canvasDiv");
     colorMode(HSB);
 
@@ -18,14 +18,14 @@ function setup() {
 
     rocketCount = 100;
     rockets = [];
-    gravity = createVector(0, 0.25);
+    gravity = createVector(0, 0.22);
 
     rate = 0.07
 }
 
 function draw() {
     colorMode(RGB);
-    background(0,0,0,60);
+    background(0,0,0,70);
 
     if(random(1) < rate) {
         rockets.push(new Rocket(random(1) < 0.05));
