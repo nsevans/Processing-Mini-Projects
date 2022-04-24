@@ -5,8 +5,8 @@ This repository has mini projects created with the p5.js library.
 ## Boids Flocking Simluation
 
 This flocking simulation is based on Craig Reynolds Boids simulation, which simulates the birds and their flocking behaviour.
-			
-A boid follows these three main rules: 
+
+A boid follows these three main rules:
 
 * Separation: Steer to avoid crowding local flockmates.
 * Alignment: Steer towards the average heading of local flockmates.
@@ -64,4 +64,4 @@ The idea for this project can be found [here](https://www.youtube.com/watch?v=40
 
 ## Sorting Algorithm
 
-Still a work in progress
+Still a work in progress.
