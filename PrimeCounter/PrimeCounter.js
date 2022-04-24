@@ -1,68 +1,84 @@
-
 let curNumber;
 let curRow;
 let maxNumber;
 
-let primeList;
-
 let pixelSize;
+let buffer;
 
 let gridWidth, gridHeight;
 
-function setup() {
-    var canvas = createCanvas(1500, 1000);
+let calculationsPerCycle;
+let done;
+
+function setup()
+{
+    var canvas = createCanvas(1555, 7500);
     canvas.parent("canvasDiv");
     background(0);
     
-    pixelSize = 2;
+    pixelSize = 1;
+    buffer = 1;
 
-    gridWidth = width / pixelSize;
-    gridHeight = height / pixelSize;
+    gridWidth = width / (pixelSize+buffer);
+    gridHeight = height / (pixelSize+buffer);
 
     curNumber = 1;
     curRow = 0;
-    maxNumber = width * height / (pixelSize * pixelSize);
+    maxNumber = width * height / ((pixelSize * pixelSize) + buffer);
 
-    primeList = [];
+    calculationsPerCycle = 2333;
+    done = false;
     
     stroke(0, 155, 0);
     fill(0, 255, 0);
 }
-function draw() {
 
-    if(curNumber <= maxNumber){
-        if(isPrime(curNumber)) {
-            let pos = calculatePosition(curNumber);
-            rect(pos.x,pos.y,pixelSize,pixelSize);
+function draw()
+{
+    for(let i=0; i<calculationsPerCycle && !done; i++)
+    {
+        if(curNumber >= maxNumber)
+            done = true;
+        
+        if(!done)
+        {
+            if(isPrime(curNumber))
+            {
+                let pos = calculatePosition(curNumber);
+                rect(pos.x,pos.y,pixelSize,pixelSize);
+            }
+            if((curNumber * pixelSize) % width == 0)
+            {
+                curRow++;
+            }
+            curNumber++;
         }
-        if((curNumber * pixelSize) % width == 0) {
-            curRow++;
-        }
-        updateDisplayData();
-        curNumber++;
     }
+
+    updateDisplayData();
 }
 
-function isPrime(num) {
-    if(num % 2 == 0){
+function isPrime(num)
+{
+    if(num % 2 == 0)
         return false;
-    }
 
-    for(let i = 2; i <= num/2; i++) {
-        if(num%i==0) {
+    for(let i = 2; i <= Math.sqrt(num); i++)
+    {
+        if(num % i === 0)
             return false;
-        }
     }
     return true;
 }
 
-function calculatePosition(num) {
-    let pos = createVector(0,0);
-    pos.x = (curNumber * pixelSize) % width;
-    pos.y = pixelSize * curRow;
-    return pos
+function calculatePosition(curNumber)
+{
+    x = (curNumber * (pixelSize + buffer)) % width;
+    y = (pixelSize + buffer) * curRow;
+    return createVector(x, y);
 }
 
-function updateDisplayData() {
-    document.getElementById("iterations").innerHTML = "Pixel Index: "+curNumber+"/"+maxNumber;
+function updateDisplayData()
+{
+    document.getElementById("iterations").innerHTML = "Pixel Index: "+curNumber.toLocaleString()+"/"+maxNumber.toLocaleString();
 }
