@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="style.css">
+		<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"></script>
+		<script language="javascript" type="text/javascript" src="Kinematics.js"></script>
+		<script language="javascript" type="text/javascript" src="Arms.js"></script>
+		<script language="javascript" type="text/javascript" src="Segments.js"></script>
+
+		<title>Kinematics</title>
+	</head>
+	<body>
+		<main>
+			<p><a href="../index.html">Back</a></p>
+			<p>Explanation</p>
+			<div id="canvasDiv"></div>
+
+			<div class="controls">
+				<div>
+					<label>
+						Type of arms (Inverse or Forward Kinematic)
+						<input type="checkbox" id="isIK">
+					</label>
+				</div>
+
+				<br>
+
+				<div>
+					<label>
+						Number of arms:
+						<input type="range" min="1" max="50" value="1" step="1" oninput="this.nextElementSibling.value=this.value" id="armAmount">
+						<output>1</output>
+					</label>
+				</div>
+				<div>
+					<label>
+						Number of arm segments:
+						<input type="range" min="1" max="50" step="1" value="10" oninput="this.nextElementSibling.value=this.value" id="segmentAmount">
+						<output>10</output>
+					</label>
+				</div>
+
+				<br>
+
+				<div>
+					<label>
+						Length of starting segment:
+						<br>
+						<input type="number" min="1" max="1000" value="50" id="startLength">
+					</label>
+				</div>
+				<div>
+					<label>
+						Subsequent segment length grow rate:
+						<br>
+						<input type="range" min="0.01" max="2" step="0.01" value="1" oninput="this.nextElementSibling.value=this.value" id="lengthGrowRate">
+						<output>1</output>
+					</label>
+				</div>
+				<br>
+
+				<div>
+					<label>
+						Thickness of starting arm:
+						<br>
+						<input type="number" min="1" max="100" value="10" id="startThickness">
+					</label>
+				</div>
+				<div>
+					<label>
+						Subsequent segment thickness grow rate:
+						<br>
+						<input type="range" min="0.01" max="2" step="0.01" value="1" oninput="this.nextElementSibling.value=this.value" id="thicknessGrowRate">
+						<output>1</output>
+					</label>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
